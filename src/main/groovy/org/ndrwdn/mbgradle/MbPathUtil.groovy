@@ -13,11 +13,11 @@ public class MbPathUtil {
         Paths
                 .get(project.projectDir.path)
                 .resolve(project.mountebank.extractPath as String)
-                .resolve(determineMbOs())
     }
 
-    public static File mbDirectory(Project project) {
-        mbPath(project)
+    public static File mbScriptPath(Project project) {
+        Paths.get(project.projectDir.path)
+                .resolve(project.mountebank.mbScriptPath as String)
                 .toFile()
     }
 

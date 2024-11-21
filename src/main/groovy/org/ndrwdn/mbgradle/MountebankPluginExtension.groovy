@@ -1,7 +1,9 @@
 package org.ndrwdn.mbgradle
 
 class MountebankPluginExtension {
-    String extractPath = 'mb'
+    String mbScriptPath = 'mb_plugin'
+    String extractPath = 'mb_plugin'
+    String mountebankVersion = "2.9.1"
     long startTimeout = 5000
     long stopTimeout = 5000
     Integer port = null

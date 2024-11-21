@@ -7,8 +7,8 @@ import java.util.concurrent.*
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS
 import static org.ndrwdn.mbgradle.MbArgUtil.buildCliArguments
-import static org.ndrwdn.mbgradle.MbPathUtil.mbDirectory
 import static org.ndrwdn.mbgradle.MbPathUtil.mbPidFile
+import static org.ndrwdn.mbgradle.MbPathUtil.mbScriptPath
 
 class MountebankStartTask extends DefaultTask {
 
@@ -21,7 +21,7 @@ class MountebankStartTask extends DefaultTask {
         if (isStopped()) {
             new ProcessBuilder()
                     .command(*mbCommand())
-                    .directory(mbDirectory(project))
+                    .directory(mbScriptPath(project))
                     .start()
 
             waitForStartOrTimeout()

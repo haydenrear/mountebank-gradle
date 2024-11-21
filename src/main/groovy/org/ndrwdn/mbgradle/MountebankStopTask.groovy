@@ -6,8 +6,8 @@ import org.gradle.api.tasks.TaskAction
 import java.util.concurrent.*
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS
-import static org.ndrwdn.mbgradle.MbPathUtil.mbDirectory
 import static org.ndrwdn.mbgradle.MbPathUtil.mbPidFile
+import static org.ndrwdn.mbgradle.MbPathUtil.mbScriptPath
 
 class MountebankStopTask extends DefaultTask {
 
@@ -20,7 +20,7 @@ class MountebankStopTask extends DefaultTask {
         if (isStarted()) {
             new ProcessBuilder()
                     .command('/usr/bin/env', 'bash', 'mb', 'stop')
-                    .directory(mbDirectory(project))
+                    .directory(mbScriptPath(project))
                     .start()
 
             waitForStopOrTimeout()
